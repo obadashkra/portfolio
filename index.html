@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>معرض أعمالي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        header .subtitle {
+            font-size: 1.25rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 25px;
+            font-size: 1.05rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--text-primary);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .section-title i {
+            color: var(--accent-color);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .skill-card h3 {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            transition: border-color 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--accent-color);
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.98rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-color);
+            color: #0f172a;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: opacity 0.3s ease;
+        }
+
+        .email-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0 10px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header / Hero Section -->
+        <header>
+            <h1>اسمك الكامل هنا</h1>
+            <div class="subtitle">مسمى وظيفتك أو تخصصك البرمجي</div>
+            <p>اكتب هنا نبذة قصيرة عنك، شغفك، والتقنيات التي تتقنها لتجذب انتباه الزوار.</p>
+            
+            <div class="social-links">
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:your-email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </header>
+
+        <!-- Skills Section -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-code"></i> مهاراتي التقنية</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3>التخصص الأول</h3>
+                    <div class="tags">
+                        <span class="tag">مهارة 1</span>
+                        <span class="tag">مهارة 2</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>التخصص الثاني</h3>
+                    <div class="tags">
+                        <span class="tag">مهارة 1</span>
+                        <span class="tag">مهارة 2</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> مشاريعي</h2>
+            <div class="projects-grid">
+
+                <div class="project-card">
+                    <h3>اسم المشروع الأول</h3>
+                    <p>وصف مبسط لما يفعله المشروع والمشكلة التي يحلها والتقنيات المستخدمة في بنائه.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-paper-plane"></i> تواصل معي</h2>
+            <div class="contact-box">
+                <p>يسعدني تواصلك معي عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي.</p>
+                <a href="mailto:your-email@example.com" class="email-btn">
+                    <i class="fas fa-envelope"></i> أرسل لي بريداً إلكترونياً
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2026 اسمك هنا. جميع الحقوق محفوظة.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
