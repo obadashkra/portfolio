@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معرض أعمالي</title>
+    <title>  obada sh | Backend and Applications Developer </title>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #38bdf8;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
+            --bg-dark: #090d16;
+            --card-bg: #131b2e;
+            --card-border: #1e2d4a;
+            --primary-accent: #38bdf8;
+            --secondary-accent: #818cf8;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --gradient-accent: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
         }
 
         * {
@@ -24,232 +28,550 @@
             margin: 0;
             padding: 0;
             font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            padding: 20px;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--card-border);
+            padding: 15px 0;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-accent);
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 100px 20px 40px;
         }
 
-        header {
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            padding: 60px 20px 40px;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 40px;
+            padding: 60px 0 80px;
+            position: relative;
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .hero-badge {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-accent);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(56, 189, 248, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            padding: 12px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-accent);
+            color: var(--primary-accent);
+        }
+
+        /* Section Title */
+        .section-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
             font-weight: 800;
-            color: var(--text-primary);
             margin-bottom: 10px;
         }
 
-        header .subtitle {
-            font-size: 1.25rem;
-            color: var(--accent-color);
-            font-weight: 500;
-            margin-bottom: 15px;
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        header p {
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 25px;
-            font-size: 1.05rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .social-links a {
-            color: var(--text-primary);
+        /* About Section */
+        .about-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 70px;
         }
 
-        .social-links a:hover {
-            color: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        section {
-            margin-bottom: 50px;
-        }
-
-        .section-title {
-            font-size: 1.5rem;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .section-title i {
-            color: var(--accent-color);
-        }
-
-        .skills-grid {
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
         }
 
-        .skill-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
+        .about-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             padding: 20px;
             border-radius: 12px;
         }
 
-        .skill-card h3 {
-            color: var(--accent-color);
-            font-size: 1.1rem;
+        .about-item i {
+            font-size: 1.8rem;
+            color: var(--primary-accent);
+            margin-bottom: 12px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .skill-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 25px;
+        }
+
+        .skill-box h3 {
+            font-size: 1.2rem;
+            color: var(--primary-accent);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-item {
             margin-bottom: 15px;
         }
 
-        .tags {
+        .progress-info {
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
         }
 
-        .tag {
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-color);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-accent);
+            border-radius: 10px;
+        }
+
+        /* Projects Section */
         .projects-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
         }
 
         .project-card {
             background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            transition: border-color 0.3s ease;
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .project-card:hover {
-            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            border-color: var(--primary-accent);
+        }
+
+        .project-tag {
+            font-size: 0.8rem;
+            color: var(--secondary-accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
         }
 
         .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+            font-size: 1.35rem;
+            margin-bottom: 12px;
         }
 
         .project-card p {
-            color: var(--text-secondary);
-            font-size: 0.98rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-box {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .contact-box p {
-            color: var(--text-secondary);
+            color: var(--text-muted);
+            font-size: 0.95rem;
             margin-bottom: 20px;
         }
 
-        .email-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--accent-color);
-            color: #0f172a;
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: opacity 0.3s ease;
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
         }
 
-        .email-btn:hover {
-            opacity: 0.9;
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--card-border);
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 70px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 12px 20px;
+            border-radius: 12px;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: border-color 0.3s;
+        }
+
+        .contact-item:hover {
+            border-color: var(--primary-accent);
+            color: var(--primary-accent);
         }
 
         footer {
             text-align: center;
-            padding: 30px 0 10px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { display: none; }
+            .container { padding-top: 80px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">عُبادة شقرة</div>
+            <ul class="nav-links">
+                <li><a href="#about">عني</a></li>
+                <li><a href="#skills">المهارات</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#services">الخدمات</a></li>
+                <li><a href="#contact">التواصل</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
         
-        <!-- Header / Hero Section -->
-        <header>
-            <h1>اسمك الكامل هنا</h1>
-            <div class="subtitle">مسمى وظيفتك أو تخصصك البرمجي</div>
-            <p>اكتب هنا نبذة قصيرة عنك، شغفك، والتقنيات التي تتقنها لتجذب انتباه الزوار.</p>
-            
-            <div class="social-links">
-                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:your-email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-badge">
+                <i class="fas fa-circle" style="font-size: 8px; color: #10b981;"></i> متاح للمشاريع والعمل الحر
             </div>
-        </header>
+            <h1>مطور تطبيقات الموبايل والأنظمة الخلفية <br><span>Cross-Platform & Backend Developer</span></h1>
+            <p>أقوم ببناء تطبيقات برمجية متكاملة وسريعة باستخدام Flutter و Python FastAPI مع حلول الذكاء الاصطناعي ومعالجة الصور ورؤية الكمبيوتر.</p>
+            
+            <div class="cta-buttons">
+                <a href="#projects" class="btn-primary">استعرض مشاريعي <i class="fas fa-arrow-left"></i></a>
+                <a href="#contact" class="btn-secondary">تواصل معي</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <div class="section-header">
+                <h2>عن خبراتي البرمجية</h2>
+                <p>نبذة شاملة عن خلفيتي التقنية والأنظمة التي أعمل عليها</p>
+            </div>
+            <div class="about-card">
+                <p>أنا عُبادة ابراهيم شقرة، مطور برمجيات شغوف ببناء تطبيقات جوال حديثة وعالية الأداء مع تصميم واجهات سلسة وتفاعلية. أمتلك خبرة عمل في ربط واجهات Flutter ببطانة خلفية قوية تعتمد على Python FastAPI مع Firebase للتوثيق وإدارة البيانات بشكل آمن وسريع.</p>
+                
+                <div class="about-grid">
+                    <div class="about-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>تطبيقات الهواتف</h4>
+                        <p>تطوير تطبيقات تعمل على أندرويد و iOS باستخدام فريمورك Flutter.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-server"></i>
+                        <h4>الأنظمة الخلفية (APIs)</h4>
+                        <p>بناء خدمات برمجية سريعة ومستقرة بواسطة Python (FastAPI) و REST APIs.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-eye"></i>
+                        <h4>رؤية الكمبيوتر (Vision)</h4>
+                        <p>دمج مكتبات OpenCV و OCR لمعالجة الصور وتقييم البيانات آلياً.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Skills Section -->
-        <section>
-            <h2 class="section-title"><i class="fas fa-code"></i> مهاراتي التقنية</h2>
-            <div class="skills-grid">
+        <section id="skills">
+            <div class="section-header">
+                <h2>المهارات التقنية</h2>
+                <p>الأدوات واللغات التي أستخدمها في تطوير المشاريع</p>
+            </div>
+            <div class="skills-container">
                 
-                <div class="skill-card">
-                    <h3>التخصص الأول</h3>
-                    <div class="tags">
-                        <span class="tag">مهارة 1</span>
-                        <span class="tag">مهارة 2</span>
+                <!-- Skill Box 1 -->
+                <div class="skill-box">
+                    <h3><i class="fas fa-code"></i> تطوير الواجهات و الموبايل</h3>
+                    
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Flutter & Dart</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>UI/UX Implementation</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>State Management (Provider/GetX/Bloc)</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
                     </div>
                 </div>
 
-                <div class="skill-card">
-                    <h3>التخصص الثاني</h3>
-                    <div class="tags">
-                        <span class="tag">مهارة 1</span>
-                        <span class="tag">مهارة 2</span>
+                <!-- Skill Box 2 -->
+                <div class="skill-box">
+                    <h3><i class="fas fa-database"></i> الأنظمة الخلفية والقواعد</h3>
+                    
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Python FastAPI</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Firebase (Auth, Firestore, Cloud)</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>PHP & MySQL (XAMPP Setup)</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    </div>
+                </div>
+
+                <!-- Skill Box 3 -->
+                <div class="skill-box">
+                    <h3><i class="fas fa-brain"></i> الذكاء والأدوات المساندة</h3>
+                    
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>OpenCV & Computer Vision</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>OCR & Image Processing</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 75%;"></div></div>
+                    </div>
+
+                    <div class="progress-item">
+                        <div class="progress-info">
+                            <span>Git, GitHub & VS Code</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
                     </div>
                 </div>
 
@@ -257,35 +579,30 @@
         </section>
 
         <!-- Projects Section -->
-        <section>
-            <h2 class="section-title"><i class="fas fa-laptop-code"></i> مشاريعي</h2>
+        <section id="projects">
+            <div class="section-header">
+                <h2>أبرز المشاريع والتطبيقات</h2>
+                <p>نماذج من أعمالي وأنظمتي المكتملة</p>
+            </div>
             <div class="projects-grid">
 
+                <!-- Project 1 -->
                 <div class="project-card">
-                    <h3>اسم المشروع الأول</h3>
-                    <p>وصف مبسط لما يفعله المشروع والمشكلة التي يحلها والتقنيات المستخدمة في بنائه.</p>
+                    <div>
+                        <div class="project-tag">AI & Mobile App</div>
+                        <h3>نظام إدارة الواجبات والتقييم الذكي</h3>
+                        <p>مشروع متكامل يتضمن تطبيق موبايل بـ Flutter ونظام خلفي بـ FastAPI. يعتمد النظام على تقنيات الرؤية الحاسوبية (OpenCV) وخوارزميات التعرف الضوئي على الحروف (OCR) لقراءة إجابات الطلاب وتقييم الواجبات آلياً مع ربط نتائجها بقاعدة بيانات سريعة.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">Flutter</span>
+                            <span class="tech-badge">Python FastAPI</span>
+                            <span class="tech-badge">Firebase</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">OCR</span>
+                        </div>
+                    </div>
+                    <a href="https://github.com/obadashkra" target="_blank" class="btn-secondary" style="text-align: center;">معاينة الكود على GitHub</a>
                 </div>
 
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section>
-            <h2 class="section-title"><i class="fas fa-paper-plane"></i> تواصل معي</h2>
-            <div class="contact-box">
-                <p>يسعدني تواصلك معي عبر البريد الإلكتروني أو وسائل التواصل الاجتماعي.</p>
-                <a href="mailto:your-email@example.com" class="email-btn">
-                    <i class="fas fa-envelope"></i> أرسل لي بريداً إلكترونياً
-                </a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <p>© 2026 اسمك هنا. جميع الحقوق محفوظة.</p>
-        </footer>
-
-    </div>
-
-</body>
-</html>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <
